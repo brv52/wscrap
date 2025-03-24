@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "Rental Offer Checker",
+    "version": "1.0",
+    "description": "Automatically refreshes the page and checks for new rental offers",
+    "permissions": ["tabs", "storage", "activeTab", "scripting", "alarms"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "host_permissions": ["<all_urls>"],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://rentalwebsite.com/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
